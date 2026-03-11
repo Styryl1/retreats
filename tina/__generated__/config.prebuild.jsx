@@ -309,7 +309,7 @@ var site_content_default = {
 };
 
 // tina/config.ts
-var envBranch = process.env.CF_PAGES_BRANCH || process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || process.env.GITHUB_REF_NAME || process.env.GITHUB_HEAD_REF;
+var envBranch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.WORKERS_CI_BRANCH || process.env.CF_PAGES_BRANCH || process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || process.env.GITHUB_REF_NAME || process.env.GITHUB_HEAD_REF;
 var branch = (envBranch || "main").trim();
 var clientId = process.env.NEXT_PUBLIC_TINA_CLIENT_ID?.trim() || null;
 var token = process.env.TINA_TOKEN?.trim() || null;

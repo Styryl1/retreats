@@ -7,6 +7,8 @@ import tinaDirective from './astro-tina-directive/register.js';
 
 export default defineConfig({
   site: 'https://soulfullalgarve.com',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'compile',
+  }),
   integrations: [react(), sitemap(), tinaDirective()],
 });

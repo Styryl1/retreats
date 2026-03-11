@@ -1,0 +1,25 @@
+.divider {
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: linear-gradient(90deg, rgba(188, 91, 118, 0), rgba(188, 91, 118, 0.16), rgba(188, 91, 118, 0));
+}
+
+.muted-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--ink-soft);
+}
+
+.section-heading--split {
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 960px) {
+  .section-heading--split {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+    align-items: end;
+  }
+}

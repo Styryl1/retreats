@@ -1,0 +1,158 @@
+fragment SiteContentParts on SiteContent {
+  __typename
+  siteSettings {
+    __typename
+    siteName
+    siteTagline
+    canonicalOrigin
+    homepageUrl
+    contactEmail
+    instagramUrl
+    ogImage
+    footerNote
+  }
+  seo {
+    __typename
+    title
+    description
+  }
+  header {
+    __typename
+    logoMark
+    brandName
+    brandSub
+    ctaLabel
+    ctaHref
+    navItems {
+      __typename
+      label
+      href
+    }
+  }
+  hero {
+    __typename
+    eyebrow
+    titleLine1
+    scriptLine
+    titleLine2
+    bodyLead
+    description
+    primaryCtaLabel
+    primaryCtaHref
+    secondaryCtaLabel
+    secondaryCtaHref
+    meta
+    cardEyebrow
+    cardTitle
+    editions {
+      __typename
+      name
+      detail
+    }
+    cardCtaLabel
+    cardCtaHref
+  }
+  experienceSection {
+    __typename
+    eyebrow
+    headingLine1
+    headingScript
+    description
+    cards {
+      __typename
+      title
+      description
+      points
+    }
+  }
+  retreatsSection {
+    __typename
+    eyebrow
+    headingLine1
+    headingScript
+    description
+    cards {
+      __typename
+      label
+      title
+      description
+      meta
+      price
+      ctaLabel
+      ctaHref
+    }
+  }
+  itinerarySection {
+    __typename
+    eyebrow
+    headingLine1
+    headingScript
+    items {
+      __typename
+      time
+      title
+      description
+    }
+    sideEyebrow
+    sideTitle
+    sideDescription
+    sidePoints
+  }
+  portugalSection {
+    __typename
+    eyebrow
+    headingLine1
+    headingScript
+    description
+    mapTitle
+    locations {
+      __typename
+      name
+      pinClass
+    }
+    notes {
+      __typename
+      title
+      description
+    }
+  }
+  testimonialsSection {
+    __typename
+    eyebrow
+    headingLine1
+    headingScript
+    items {
+      __typename
+      quote
+      author
+    }
+  }
+  faqSection {
+    __typename
+    eyebrow
+    headingLine1
+    headingScript
+    items {
+      __typename
+      question
+      answer
+    }
+  }
+  contactSection {
+    __typename
+    eyebrow
+    headingLine1
+    headingScript
+    description
+    badges
+    panelTitle
+    panelDescription
+    emailLabel
+    emailHref
+    secondaryCtaLabel
+    secondaryCtaHref
+    listTitle
+    listItems
+    smallPrint
+  }
+}

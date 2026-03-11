@@ -1,0 +1,452 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TinaInlineBridge from '../components/react/TinaInlineBridge.tsx';
+import { loadSiteDocument } from '../data/siteContent';
+import { tinaField } from 'tinacms/dist/react';
+import '../styles/index.css';
+
+const { siteContent, tinaBridgeProps } = await loadSiteDocument();
+
+type LinkItem = { label: string; href: string };
+type EditionItem = { name: string; detail: string };
+type ExperienceCard = { title: string; description: string; points: string[] };
+type RetreatCard = { label: string; title: string; description: string; meta: string[]; price: string; ctaLabel: string; ctaHref: string };
+type TimelineItem = { time: string; title: string; description: string };
+type PortugalLocation = { name: string; pinClass: string };
+type PortugalNote = { title: string; description: string };
+type TestimonialItem = { quote: string; author: string };
+type FaqItem = { question: string; answer: string };
+
+const content = siteContent as Record<string, any>;
+const siteSettings = content.siteSettings ?? {};
+const seo = content.seo ?? {};
+const header = content.header ?? {};
+const hero = content.hero ?? {};
+const experienceSection = content.experienceSection ?? {};
+const retreatsSection = content.retreatsSection ?? {};
+const itinerarySection = content.itinerarySection ?? {};
+const portugalSection = content.portugalSection ?? {};
+const testimonialsSection = content.testimonialsSection ?? {};
+const faqSection = content.faqSection ?? {};
+const contactSection = content.contactSection ?? {};
+
+const navItems = (header.navItems ?? []) as LinkItem[];
+const heroMeta = (hero.meta ?? []) as string[];
+const heroEditions = (hero.editions ?? []) as EditionItem[];
+const experienceCards = (experienceSection.cards ?? []) as ExperienceCard[];
+const retreatCards = (retreatsSection.cards ?? []) as RetreatCard[];
+const itineraryItems = (itinerarySection.items ?? []) as TimelineItem[];
+const itinerarySidePoints = (itinerarySection.sidePoints ?? []) as string[];
+const portugalLocations = (portugalSection.locations ?? []) as PortugalLocation[];
+const portugalNotes = (portugalSection.notes ?? []) as PortugalNote[];
+const testimonialItems = (testimonialsSection.items ?? []) as TestimonialItem[];
+const faqItems = (faqSection.items ?? []) as FaqItem[];
+const contactBadges = (contactSection.badges ?? []) as string[];
+const contactListItems = (contactSection.listItems ?? []) as string[];
+---
+
+<BaseLayout
+  title={seo.title ?? siteSettings.siteName ?? 'Soulful Algarve'}
+  description={seo.description}
+  canonical={siteSettings.canonicalOrigin}
+  ogImage={siteSettings.ogImage}
+  siteName={siteSettings.siteName}
+>
+  {
+    tinaBridgeProps && (
+      <>
+        {/* @ts-expect-error custom Astro client directive */}
+        <TinaInlineBridge {...tinaBridgeProps} client:tina />
+      </>
+    )
+  }
+
+  <div class="site-shell">
+    <header class="site-header" data-site-header data-tina-field={tinaField(content, 'header')}>
+      <div class="container site-header__bar">
+        <a href="#top" class="brand" aria-label={`${header.brandName} home`}>
+          <span class="brand__mark" aria-hidden="true" data-tina-field={tinaField(header, 'logoMark')}>
+            {header.logoMark}
+          </span>
+          <span class="brand__copy">
+            <span class="brand__name" data-tina-field={tinaField(header, 'brandName')}>
+              {header.brandName}
+            </span>
+            <span class="brand__sub" data-tina-field={tinaField(header, 'brandSub')}>
+              {header.brandSub}
+            </span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          {navItems.map((item, index) => (
+            <a href={item.href} data-tina-field={tinaField(header, 'navItems', index)}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a href={header.ctaHref} class="button button--primary header-cta" data-tina-field={tinaField(header, 'ctaLabel')}>
+          {header.ctaLabel}
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="mobile-menu" hidden data-mobile-menu>
+        <div class="mobile-menu__links">
+          {navItems.map((item, index) => (
+            <a href={item.href} data-tina-field={tinaField(header, 'navItems', index)}>
+              {item.label}
+            </a>
+          ))}
+          <a href={header.ctaHref} class="button button--primary" data-tina-field={tinaField(header, 'ctaLabel')}>
+            {header.ctaLabel}
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" data-tina-field={tinaField(content, 'hero')}>
+        <div class="container">
+          <div class="hero__frame">
+            <div class="hero__grid">
+              <div class="hero__copy">
+                <span class="eyebrow" data-tina-field={tinaField(hero, 'eyebrow')}>
+                  {hero.eyebrow}
+                </span>
+                <h1 class="hero__title">
+                  <span data-tina-field={tinaField(hero, 'titleLine1')}>{hero.titleLine1}</span>
+                  <span class="script-line" data-tina-field={tinaField(hero, 'scriptLine')}>
+                    {hero.scriptLine}
+                  </span>
+                  <span data-tina-field={tinaField(hero, 'titleLine2')}>{hero.titleLine2}</span>
+                  <strong data-tina-field={tinaField(hero, 'bodyLead')}>{hero.bodyLead}</strong>
+                </h1>
+                <p class="hero__lede" data-tina-field={tinaField(hero, 'description')}>
+                  {hero.description}
+                </p>
+                <div class="hero__actions">
+                  <a href={hero.primaryCtaHref} class="button button--primary" data-tina-field={tinaField(hero, 'primaryCtaLabel')}>
+                    {hero.primaryCtaLabel}
+                  </a>
+                  <a href={hero.secondaryCtaHref} class="button button--ghost" data-tina-field={tinaField(hero, 'secondaryCtaLabel')}>
+                    {hero.secondaryCtaLabel}
+                  </a>
+                </div>
+                <ul class="hero__meta">
+                  {heroMeta.map((item, index) => (
+                    <li data-tina-field={tinaField(hero, 'meta', index)}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <aside class="hero-card" aria-label="Next retreats overview">
+                <div class="hero-card__sun" aria-hidden="true"></div>
+                <span class="hero-card__eyebrow" data-tina-field={tinaField(hero, 'cardEyebrow')}>
+                  {hero.cardEyebrow}
+                </span>
+                <h2 class="hero-card__title" data-tina-field={tinaField(hero, 'cardTitle')}>
+                  {hero.cardTitle}
+                </h2>
+                <ul class="hero-card__list">
+                  {heroEditions.map((item, index) => (
+                    <li data-tina-field={tinaField(hero, 'editions', index)}>
+                      <strong>{item.name}</strong>
+                      <span>{item.detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href={hero.cardCtaHref} class="button button--ghost" data-tina-field={tinaField(hero, 'cardCtaLabel')}>
+                  {hero.cardCtaLabel}
+                </a>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <span id="experience" class="anchor-offset" aria-hidden="true"></span>
+      <section class="section" data-tina-field={tinaField(content, 'experienceSection')}>
+        <div class="container">
+          <div class="section-heading section-heading--split">
+            <div>
+              <span class="eyebrow" data-tina-field={tinaField(experienceSection, 'eyebrow')}>
+                {experienceSection.eyebrow}
+              </span>
+              <h2>
+                <span data-tina-field={tinaField(experienceSection, 'headingLine1')}>{experienceSection.headingLine1}</span>
+                <span class="script-line" data-tina-field={tinaField(experienceSection, 'headingScript')}>
+                  {experienceSection.headingScript}
+                </span>
+              </h2>
+            </div>
+            <p data-tina-field={tinaField(experienceSection, 'description')}>{experienceSection.description}</p>
+          </div>
+
+          <div class="experience__grid">
+            {experienceCards.map((card, index) => (
+              <article class="card" data-tina-field={tinaField(experienceSection, 'cards', index)}>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                <ul class="feature-list">
+                  {(card.points ?? []).map((point, pointIndex) => (
+                    <li data-tina-field={tinaField(card, 'points', pointIndex)}>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <span id="retreats" class="anchor-offset" aria-hidden="true"></span>
+      <section class="section" data-tina-field={tinaField(content, 'retreatsSection')}>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-tina-field={tinaField(retreatsSection, 'eyebrow')}>
+              {retreatsSection.eyebrow}
+            </span>
+            <h2>
+              <span data-tina-field={tinaField(retreatsSection, 'headingLine1')}>{retreatsSection.headingLine1}</span>
+              <span class="script-line" data-tina-field={tinaField(retreatsSection, 'headingScript')}>
+                {retreatsSection.headingScript}
+              </span>
+            </h2>
+            <p data-tina-field={tinaField(retreatsSection, 'description')}>{retreatsSection.description}</p>
+          </div>
+
+          <div class="retreats__grid">
+            {retreatCards.map((retreat, index) => (
+              <article class="retreat-card" data-tina-field={tinaField(retreatsSection, 'cards', index)}>
+                <div class="retreat-card__top">
+                  <span class="retreat-card__pill">{retreat.label}</span>
+                </div>
+                <h3>{retreat.title}</h3>
+                <p>{retreat.description}</p>
+                <ul class="retreat-card__meta">
+                  {(retreat.meta ?? []).map((item, metaIndex) => (
+                    <li data-tina-field={tinaField(retreat, 'meta', metaIndex)}>{item}</li>
+                  ))}
+                </ul>
+                <div class="retreat-card__footer">
+                  <span class="retreat-card__price">{retreat.price}</span>
+                  <a href={retreat.ctaHref} class="button button--ghost">
+                    {retreat.ctaLabel}
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <span id="itinerary" class="anchor-offset" aria-hidden="true"></span>
+      <section class="section itinerary" data-tina-field={tinaField(content, 'itinerarySection')}>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-tina-field={tinaField(itinerarySection, 'eyebrow')}>
+              {itinerarySection.eyebrow}
+            </span>
+            <h2>
+              <span data-tina-field={tinaField(itinerarySection, 'headingLine1')}>{itinerarySection.headingLine1}</span>
+              <span class="script-line" data-tina-field={tinaField(itinerarySection, 'headingScript')}>
+                {itinerarySection.headingScript}
+              </span>
+            </h2>
+          </div>
+
+          <div class="itinerary__layout">
+            <div class="timeline">
+              {itineraryItems.map((item, index) => (
+                <article class="timeline__item" data-tina-field={tinaField(itinerarySection, 'items', index)}>
+                  <div class="timeline__title">
+                    <h3>{item.title}</h3>
+                    <span class="timeline__time">{item.time}</span>
+                  </div>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <aside class="portugal-panel">
+              <span class="eyebrow" data-tina-field={tinaField(itinerarySection, 'sideEyebrow')}>
+                {itinerarySection.sideEyebrow}
+              </span>
+              <h3 data-tina-field={tinaField(itinerarySection, 'sideTitle')}>{itinerarySection.sideTitle}</h3>
+              <p data-tina-field={tinaField(itinerarySection, 'sideDescription')}>{itinerarySection.sideDescription}</p>
+              <ul class="feature-list">
+                {itinerarySidePoints.map((point, index) => (
+                  <li data-tina-field={tinaField(itinerarySection, 'sidePoints', index)}>{point}</li>
+                ))}
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <span id="portugal" class="anchor-offset" aria-hidden="true"></span>
+      <section class="section" data-tina-field={tinaField(content, 'portugalSection')}>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-tina-field={tinaField(portugalSection, 'eyebrow')}>
+              {portugalSection.eyebrow}
+            </span>
+            <h2>
+              <span data-tina-field={tinaField(portugalSection, 'headingLine1')}>{portugalSection.headingLine1}</span>
+              <span class="script-line" data-tina-field={tinaField(portugalSection, 'headingScript')}>
+                {portugalSection.headingScript}
+              </span>
+            </h2>
+            <p data-tina-field={tinaField(portugalSection, 'description')}>{portugalSection.description}</p>
+          </div>
+
+          <div class="itinerary__layout">
+            <div class="portugal-panel">
+              <div class="portugal-panel__map" aria-label={portugalSection.mapTitle}>
+                <div class="portugal-panel__shape" aria-hidden="true"></div>
+                {portugalLocations.map((location, index) => (
+                  <div class:list={['pin', location.pinClass]} data-tina-field={tinaField(portugalSection, 'locations', index)}>
+                    <div class="pin__dot" aria-hidden="true"></div>
+                    <span>{location.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="timeline">
+              {portugalNotes.map((note, index) => (
+                <article class="timeline__item" data-tina-field={tinaField(portugalSection, 'notes', index)}>
+                  <div class="timeline__title">
+                    <h3>{note.title}</h3>
+                    <span class="timeline__time">Portugal</span>
+                  </div>
+                  <p>{note.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-tina-field={tinaField(content, 'testimonialsSection')}>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-tina-field={tinaField(testimonialsSection, 'eyebrow')}>
+              {testimonialsSection.eyebrow}
+            </span>
+            <h2>
+              <span data-tina-field={tinaField(testimonialsSection, 'headingLine1')}>{testimonialsSection.headingLine1}</span>
+              <span class="script-line" data-tina-field={tinaField(testimonialsSection, 'headingScript')}>
+                {testimonialsSection.headingScript}
+              </span>
+            </h2>
+          </div>
+
+          <div class="testimonials__grid">
+            {testimonialItems.map((item, index) => (
+              <article class="quote-card" data-tina-field={tinaField(testimonialsSection, 'items', index)}>
+                <blockquote>{item.quote}</blockquote>
+                <footer>{item.author}</footer>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-tina-field={tinaField(content, 'faqSection')}>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-tina-field={tinaField(faqSection, 'eyebrow')}>
+              {faqSection.eyebrow}
+            </span>
+            <h2>
+              <span data-tina-field={tinaField(faqSection, 'headingLine1')}>{faqSection.headingLine1}</span>
+              <span class="script-line" data-tina-field={tinaField(faqSection, 'headingScript')}>
+                {faqSection.headingScript}
+              </span>
+            </h2>
+          </div>
+
+          <div class="faq">
+            {faqItems.map((item, index) => (
+              <details data-tina-field={tinaField(faqSection, 'items', index)}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <span id="contact" class="anchor-offset" aria-hidden="true"></span>
+      <section class="section contact" data-tina-field={tinaField(content, 'contactSection')}>
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow" data-tina-field={tinaField(contactSection, 'eyebrow')}>
+              {contactSection.eyebrow}
+            </span>
+            <h2>
+              <span data-tina-field={tinaField(contactSection, 'headingLine1')}>{contactSection.headingLine1}</span>
+              <span class="script-line" data-tina-field={tinaField(contactSection, 'headingScript')}>
+                {contactSection.headingScript}
+              </span>
+            </h2>
+            <p data-tina-field={tinaField(contactSection, 'description')}>{contactSection.description}</p>
+          </div>
+
+          <div class="contact__grid">
+            <article class="contact-panel">
+              <div class="contact-panel__stack">
+                {contactBadges.map((badge, index) => (
+                  <span class="contact-panel__badge" data-tina-field={tinaField(contactSection, 'badges', index)}>
+                    {badge}
+                  </span>
+                ))}
+              </div>
+              <h3 data-tina-field={tinaField(contactSection, 'panelTitle')}>{contactSection.panelTitle}</h3>
+              <p data-tina-field={tinaField(contactSection, 'panelDescription')}>{contactSection.panelDescription}</p>
+              <div class="hero__actions">
+                <a href={contactSection.emailHref} class="button button--primary" data-tina-field={tinaField(contactSection, 'emailLabel')}>
+                  {contactSection.emailLabel}
+                </a>
+                <a href={contactSection.secondaryCtaHref} class="button button--ghost" data-tina-field={tinaField(contactSection, 'secondaryCtaLabel')}>
+                  {contactSection.secondaryCtaLabel}
+                </a>
+              </div>
+            </article>
+
+            <article class="contact-panel">
+              <h3 data-tina-field={tinaField(contactSection, 'listTitle')}>{contactSection.listTitle}</h3>
+              <ul class="contact-panel__list">
+                {contactListItems.map((item, index) => (
+                  <li data-tina-field={tinaField(contactSection, 'listItems', index)}>{item}</li>
+                ))}
+              </ul>
+              <p class="contact-panel__small" data-tina-field={tinaField(contactSection, 'smallPrint')}>
+                {contactSection.smallPrint}
+              </p>
+            </article>
+          </div>
+
+          <p class="footer-note" data-tina-field={tinaField(siteSettings, 'footerNote')}>
+            {siteSettings.footerNote}
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    import { initHeaderBehavior } from '../scripts/header';
+
+    initHeaderBehavior();
+  </script>
+</BaseLayout>

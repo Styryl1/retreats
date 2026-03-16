@@ -31,26 +31,26 @@
 }
 
 :root {
-  --bg: #f4e9df;
-  --bg-strong: #ead9cd;
-  --surface: rgba(255, 249, 245, 0.9);
-  --surface-strong: #fff7f2;
-  --surface-tint: #f7d5d7;
-  --surface-tint-strong: #f0bbc2;
-  --ink: #4d2733;
-  --ink-soft: #7b5560;
-  --accent: #d9718a;
-  --accent-strong: #bc5b76;
-  --accent-deep: #8d4054;
-  --line: rgba(98, 53, 66, 0.14);
-  --shadow: 0 22px 60px rgba(125, 70, 87, 0.15);
-  --shadow-soft: 0 16px 32px rgba(125, 70, 87, 0.1);
+  --bg: #f4ede2;
+  --bg-strong: #ead9c4;
+  --surface: rgba(255, 249, 240, 0.92);
+  --surface-strong: #fff9f1;
+  --surface-tint: #efe0cb;
+  --surface-tint-strong: #e2ccb0;
+  --ink: #5f3d28;
+  --ink-soft: #8c684e;
+  --accent: #c88b5d;
+  --accent-strong: #ae7247;
+  --accent-deep: #76492f;
+  --line: rgba(95, 61, 40, 0.14);
+  --shadow: 0 26px 70px rgba(92, 62, 38, 0.12);
+  --shadow-soft: 0 18px 36px rgba(92, 62, 38, 0.08);
   --radius-xl: 36px;
   --radius-lg: 24px;
   --radius-md: 18px;
   --container: min(1180px, calc(100% - 40px));
   --font-sans: 'Aspekta', 'Avenir Next', 'Trebuchet MS', sans-serif;
-  --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --font-serif: 'Iowan Old Style', 'Baskerville', 'Palatino Linotype', Georgia, serif;
 }
 
 * {
@@ -65,9 +65,9 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at top left, rgba(231, 173, 187, 0.45), transparent 32%),
-    radial-gradient(circle at 85% 12%, rgba(255, 244, 235, 0.85), transparent 28%),
-    linear-gradient(180deg, #f7ede5 0%, #f4e9df 45%, #f1e3d7 100%);
+    radial-gradient(circle at top left, rgba(226, 202, 170, 0.48), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(243, 230, 207, 0.78), transparent 24%),
+    linear-gradient(180deg, #f8f2e9 0%, #f4ede2 46%, #efe3d3 100%);
   color: var(--ink);
   font-family: var(--font-sans);
   line-height: 1.45;
@@ -128,8 +128,8 @@ ol {
   gap: 10px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(255, 247, 242, 0.78);
-  border: 1px solid rgba(188, 91, 118, 0.18);
+  background: rgba(255, 249, 240, 0.9);
+  border: 1px solid rgba(118, 73, 47, 0.14);
   color: var(--accent-deep);
   font-size: 0.78rem;
   letter-spacing: 0.12em;

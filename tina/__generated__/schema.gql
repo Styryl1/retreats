@@ -110,6 +110,8 @@ type SiteContentHeaderNavItems {
 
 type SiteContentHeader {
   logoMark: String
+  logoImage: String
+  logoAlt: String
   brandName: String
   brandSub: String
   ctaLabel: String
@@ -305,6 +307,8 @@ input SiteContentHeaderNavItemsFilter {
 
 input SiteContentHeaderFilter {
   logoMark: StringFilter
+  logoImage: ImageFilter
+  logoAlt: StringFilter
   brandName: StringFilter
   brandSub: StringFilter
   ctaLabel: StringFilter
@@ -513,6 +517,8 @@ input SiteContentHeaderNavItemsMutation {
 
 input SiteContentHeaderMutation {
   logoMark: String
+  logoImage: String
+  logoAlt: String
   brandName: String
   brandSub: String
   ctaLabel: String

@@ -19,6 +19,8 @@ fragment SiteContentParts on SiteContent {
   header {
     __typename
     logoMark
+    logoImage
+    logoAlt
     brandName
     brandSub
     ctaLabel

@@ -1,40 +1,46 @@
 {
   "siteSettings": {
-    "siteName": "Soulful Algarve",
-    "siteTagline": "Retreats in Portugal",
+    "siteName": "Soulfull",
+    "siteTagline": "Holistic skincare workshops, retreats and rituals",
     "canonicalOrigin": "https://soulfullalgarve.com/",
     "homepageUrl": "https://soulfullalgarve.com/",
     "contactEmail": "hello@soulfullalgarve.com",
     "instagramUrl": "https://instagram.com/soulfullalgarve",
-    "ogImage": "/social-card.svg",
-    "footerNote": "Soulful Algarve creates slower, brighter retreats across the Portuguese coast with a warm pink-and-beige aesthetic."
+    "ogImage": "/soulfull-sun.png",
+    "footerNote": "Soulfull creates holistic skincare workshops, private wellness gatherings, and slower retreat-style experiences rooted in natural ingredients, facial massage, and meaningful ritual."
   },
   "seo": {
-    "title": "Soulful Algarve | Retreats in Portugal",
-    "description": "Design-led retreats in Portugal for small groups, private escapes, and founder offsites, with slow days, coastal light, and beautifully hosted evenings."
+    "title": "Soulfull | Holistic skincare workshops, retreats and rituals",
+    "description": "Soulfull brings people together through botanical skincare workshops, private wellness circles, facial massage rituals, and slower retreat experiences designed to feel warm, sensory, and nourishing."
   },
   "header": {
     "logoMark": "S",
-    "brandName": "Soulful Algarve",
-    "brandSub": "Retreats in Portugal",
-    "ctaLabel": "Plan a retreat",
+    "logoImage": "/soulfull-sun.png",
+    "logoAlt": "Soulfull sun logo",
+    "brandName": "Soulfull",
+    "brandSub": "Holistic skincare workshops, retreats and rituals",
+    "ctaLabel": "Plan your Soulfull gathering",
     "ctaHref": "#contact",
     "navItems": [
       {
-        "label": "Experience",
-        "href": "#experience"
+        "label": "Philosophy",
+        "href": "#philosophy"
       },
       {
-        "label": "Retreats",
-        "href": "#retreats"
+        "label": "Offerings",
+        "href": "#offerings"
       },
       {
-        "label": "Sample Day",
-        "href": "#itinerary"
+        "label": "Workshop Flow",
+        "href": "#flow"
       },
       {
-        "label": "Portugal",
-        "href": "#portugal"
+        "label": "Botanical Rituals",
+        "href": "#botanical"
+      },
+      {
+        "label": "Notes",
+        "href": "#notes"
       },
       {
         "label": "Contact",
@@ -43,263 +49,263 @@
     ]
   },
   "hero": {
-    "eyebrow": "Portugal retreats for slower, brighter days",
-    "titleLine1": "Boobs",
-    "scriptLine": "Atlantic air,",
-    "titleLine2": "beige stone houses.",
-    "bodyLead": "Retreats shaped for rest, creativity, and small-group connection along the Portuguese coast.",
-    "description": "Soulful Algarve hosts design-led retreats in Portugal for guests who want a softer pace, a stronger sense of place, and long-table evenings that feel restorative rather than scheduled.",
-    "primaryCtaLabel": "See retreat formats",
-    "primaryCtaHref": "#retreats",
-    "secondaryCtaLabel": "View a sample day",
-    "secondaryCtaHref": "#itinerary",
+    "eyebrow": "Holistic skincare, slow ritual, and sun-soaked gathering",
+    "titleLine1": "Soulfull",
+    "scriptLine": "rituals,",
+    "titleLine2": "for skin, rest, and togetherness.",
+    "bodyLead": "Organic skincare workshops, private wellness circles, and retreat-style experiences held with warmth.",
+    "description": "Soulfull brings people together through botanical skincare, facial massage, nervous-system-softening rituals, and beautiful shared tables. Every experience is designed to feel grounding, sensory, and genuinely nourishing.",
+    "primaryCtaLabel": "See the ways to gather",
+    "primaryCtaHref": "#offerings",
+    "secondaryCtaLabel": "Explore the workshop flow",
+    "secondaryCtaHref": "#flow",
     "meta": [
-      "Small groups of 14",
-      "4 to 6 night stays",
-      "Yoga, surf, design, and slow dining"
+      "Holistic skincare workshops",
+      "Private wellness gatherings",
+      "Retreat-style hosting"
     ],
-    "cardEyebrow": "Next editions",
-    "cardTitle": "Three ways into Portugal",
+    "cardEyebrow": "What Soulfull holds",
+    "cardTitle": "Three ways to gather",
     "editions": [
       {
-        "name": "Sintra House",
-        "detail": "forest mornings"
+        "name": "Workshop",
+        "detail": "organic skincare and facial massage"
       },
       {
-        "name": "Comporta Villa",
-        "detail": "beach and long lunches"
+        "name": "Private circle",
+        "detail": "garden ritual for friends, brands, or teams"
       },
       {
-        "name": "Algarve Residency",
-        "detail": "autumn studio week"
+        "name": "Retreat day",
+        "detail": "slow wellness experiences under the sun"
       }
     ],
-    "cardCtaLabel": "Request dates and pricing",
+    "cardCtaLabel": "Start a conversation",
     "cardCtaHref": "#contact"
   },
   "experienceSection": {
-    "eyebrow": "Experience",
-    "headingLine1": "Retreats that feel",
-    "headingScript": "carefully hosted, not over-programmed",
-    "description": "Every stay is built around light structure, warm service, and enough quiet to let the setting do some of the work. Nothing feels generic and nothing feels overfilled.",
+    "eyebrow": "Philosophy",
+    "headingLine1": "Rooted in plants,",
+    "headingScript": "touch, and slower nervous systems",
+    "description": "The Soulfull guide makes the intention clear: support the skin gently, choose ingredients that feel familiar, and turn skincare into ritual rather than pressure.",
     "cards": [
       {
-        "title": "Retreat design with a softer pace",
-        "description": "Each stay is built around sunrise movement, deep work or reflection blocks, long lunches, and evenings that feel social rather than scheduled.",
+        "title": "Natural skincare without overwhelm",
+        "description": "Everything starts with ingredients that feel intuitive: botanical oils, floral waters, minerals, and shorter ingredient lists that support the skin rather than fight it.",
         "points": [
-          "Hosts handle transport and timing from arrival to final transfer.",
-          "Every retreat includes generous downtime by the pool, beach, or garden."
+          "Barrier support, nourishment, and long-term skin health come before quick fixes.",
+          "Organic ingredients are chosen for familiarity, softness, and sensory comfort."
         ]
       },
       {
-        "title": "Portugal as atmosphere, not backdrop",
-        "description": "We use restored estates, coastal villas, and low-key design hotels that feel grounded in place instead of generic wellness venues.",
+        "title": "Holistic ritual, not just products",
+        "description": "Soulfull treats skincare as a whole-body ritual that includes facial massage, breath, aromatherapy, and moments of self-connection.",
         "points": [
-          "Sintra forests for cool mornings and candlelit dinners.",
-          "Comporta and Algarve settings for salt air, open sky, and warm late light."
+          "Guests can work with hands, gua sha, or crystal tools to support circulation and glow.",
+          "Every session leaves room for feeling, scent, and touch rather than just information."
         ]
       },
       {
-        "title": "For private groups and open dates",
-        "description": "Book a scheduled retreat or shape a private edition for founders, creative teams, or friend groups who want a better format than the usual offsite.",
+        "title": "Gatherings that feel warm and held",
+        "description": "The Canva direction points to a brand that is equal parts educational, beautiful, and restorative, with time to ask questions, experiment, and then simply enjoy.",
         "points": [
-          "Optional surf coaching, ceramics, sound sessions, and chef-led suppers.",
-          "Planning support for workshops, celebrations, and brand moments."
+          "Garden sanctuary atmosphere, softer pacing, and thoughtful hosting shape the experience.",
+          "Grazing boards, fruit platters, drinks, and sun-time turn the ending into a celebration."
         ]
       }
     ]
   },
   "retreatsSection": {
-    "eyebrow": "Retreat formats",
-    "headingLine1": "Choose a hosted stay,",
-    "headingScript": "or shape a private escape",
-    "description": "Open dates work for individual guests and pairs. Private editions work for teams, founder groups, and creative circles who want a more memorable setting than a standard offsite.",
+    "eyebrow": "Offerings",
+    "headingLine1": "Choose a Soulfull format,",
+    "headingScript": "from intimate workshops to private retreats",
+    "description": "The Soulfull brand can flex around many kinds of gathering. What stays consistent is the blend of skincare education, sensory ritual, and beautiful, slower hosting.",
     "cards": [
       {
-        "label": "Signature",
-        "title": "Atlantic Reset",
-        "description": "A five-night coastal retreat in Comporta for guests who want movement, sea air, and unhurried evenings.",
+        "label": "Signature Workshop",
+        "title": "Holistic Skincare Workshop",
+        "description": "A guided group experience exploring organic skincare, botanical ingredients, facial massage, and how to build an at-home ritual that actually feels sustainable.",
         "meta": [
-          "Comporta",
-          "5 nights",
-          "May to September"
+          "Best for 8 to 20 guests",
+          "Hands-on and educational",
+          "Products, scent, and touch"
         ],
-        "price": "From EUR1,980 per guest",
+        "price": "Custom quote based on group size and setting",
         "ctaLabel": "Enquire",
         "ctaHref": "#contact"
       },
       {
-        "label": "Private Groups",
-        "title": "Founders by the Sea",
-        "description": "A warm, design-led offsite for small teams who want strategy sessions without losing the softness of a retreat.",
+        "label": "Private Gathering",
+        "title": "Soulfull Garden Circle",
+        "description": "A softer private format for birthdays, hen gatherings, brand hosting, or team wellbeing days where skincare ritual becomes the centrepiece.",
         "meta": [
-          "Sintra or Ericeira",
-          "4 nights",
-          "8 to 12 guests"
+          "Garden, villa, or hosted venue",
+          "Tea, grazing boards, and ritual",
+          "Friends, brands, or teams"
         ],
-        "price": "Custom pricing for private bookings",
+        "price": "Designed around your date, group, and mood",
         "ctaLabel": "Enquire",
         "ctaHref": "#contact"
       },
       {
-        "label": "Creative Escape",
-        "title": "Pink Evening Residency",
-        "description": "For writers, designers, and artists who want studio time, hosted meals, and a setting that resets the nervous system.",
+        "label": "Retreat Experience",
+        "title": "Slow Wellness Retreat",
+        "description": "A longer-form Soulfull gathering that blends skincare, rest, sun, ritual, and nourishing shared time into a retreat-shaped day or weekend.",
         "meta": [
-          "Algarve",
-          "6 nights",
-          "Autumn edition"
+          "Seasonal retreat days or weekends",
+          "Optional breathwork or body rituals",
+          "Calm, sensory hosting"
         ],
-        "price": "From EUR2,240 per guest",
+        "price": "Planned as a bespoke experience",
         "ctaLabel": "Enquire",
         "ctaHref": "#contact"
       }
     ]
   },
   "itinerarySection": {
-    "eyebrow": "Sample day",
-    "headingLine1": "Enough shape to feel held,",
-    "headingScript": "enough space to actually unwind",
+    "eyebrow": "Workshop flow",
+    "headingLine1": "A Soulfull session moves",
+    "headingScript": "from learning, to touch, to shared ritual",
     "items": [
       {
-        "time": "07:30",
-        "title": "Terrace movement",
-        "description": "Pilates, yoga, or breath-led mobility on a shaded terrace while the coast is still quiet."
+        "time": "01",
+        "title": "Arrive and settle",
+        "description": "Guests land into a calm, hosted atmosphere with tea, gentle welcome notes, and a sense of stepping into a slower rhythm."
       },
       {
-        "time": "09:00",
-        "title": "Slow breakfast",
-        "description": "Fruit, local pastries, coffee, and a briefing for the day served family-style in the garden."
+        "time": "02",
+        "title": "Understand the skin",
+        "description": "We explore what natural skincare really means, why barrier support matters, and how organic ingredients can work in harmony with the skin."
       },
       {
-        "time": "11:00",
-        "title": "Core session",
-        "description": "Choose between guided workshops, surf, ceramics, or unstructured time for reading and rest."
+        "time": "03",
+        "title": "Meet the botanicals",
+        "description": "Rose, lavender, calendula, mandarin, jojoba, and mineral-rich waters become practical tools rather than abstract ingredient names."
       },
       {
-        "time": "16:30",
-        "title": "Golden-hour reset",
-        "description": "Poolside pause, beach walk, or sauna before dinner starts to gather everyone back together."
+        "time": "04",
+        "title": "Facial massage and product ritual",
+        "description": "Guests apply, smell, and test products while learning gentle massage techniques with hands or tools to support glow and circulation."
       },
       {
-        "time": "20:00",
-        "title": "Long-table dinner",
-        "description": "Seasonal Portuguese menus, natural wine, and one hosted conversation or live acoustic set."
+        "time": "05",
+        "title": "Eat, drink, and enjoy the sun",
+        "description": "The session closes with grazing boards, fruit platters, drinks, and enough unhurried time for conversation, questions, and absorption."
       }
     ],
-    "sideEyebrow": "What stays consistent",
-    "sideTitle": "Every edition keeps the same emotional rhythm",
-    "sideDescription": "Quiet mornings, one central experience, a generous late afternoon, and dinner that feels like the social heart of the day.",
+    "sideEyebrow": "What every format keeps",
+    "sideTitle": "The emotional rhythm stays the same",
+    "sideDescription": "Calm arrival, sensory learning, personal ritual, and a hosted ending that feels celebratory rather than abrupt.",
     "sidePoints": [
-      "Airport transfers and local movement are handled for the group.",
-      "Chef-led menus center local produce, seafood, and relaxed service.",
-      "Optional add-ons bring in surf, ceramics, sound, or strategy facilitation."
+      "Organic ingredients and familiar scents guide the experience.",
+      "There is always space to ask questions and personalise a routine.",
+      "The final stretch is designed to feel soft, social, and memorable."
     ]
   },
   "portugalSection": {
-    "eyebrow": "Why Portugal",
-    "headingLine1": "Easy to reach,",
-    "headingScript": "hard to leave early",
-    "description": "Portugal makes retreat logistics cleaner and the atmosphere warmer. It is one of the few places where design, weather, food, and access all pull in the same direction.",
-    "mapTitle": "Illustrated Portugal venue map",
+    "eyebrow": "Botanical rituals",
+    "headingLine1": "What we work with,",
+    "headingScript": "and what guests take home",
+    "description": "The Soulfull deck circles around a few recurring building blocks: carrier oils, floral waters, massage, and personalised blends that continue at home.",
+    "mapTitle": "Soulfull ritual board",
     "locations": [
       {
-        "name": "Sintra",
-        "pinClass": "pin--sintra"
+        "name": "Rose and rose water",
+        "pinClass": "tag--rose"
       },
       {
-        "name": "Comporta",
-        "pinClass": "pin--comporta"
+        "name": "Jojoba and calendula",
+        "pinClass": "tag--jojoba"
       },
       {
-        "name": "Algarve",
-        "pinClass": "pin--algarve"
+        "name": "Lavender and mandarin",
+        "pinClass": "tag--lavender"
       }
     ],
     "notes": [
       {
-        "title": "Direct flights, easy arrivals",
-        "description": "Lisbon and Faro keep travel days light for international guests, especially private groups arriving from multiple cities."
+        "title": "Build a personalised routine",
+        "description": "Guests leave knowing how to cleanse gently, tone with mineral or floral waters, moisturise well, protect the skin barrier, and add masks or scrubs only when they truly help."
       },
       {
-        "title": "The shoulder season is still golden",
-        "description": "Portugal gives us dependable light, outdoor dining, and warm evenings without the compressed feeling of peak summer."
+        "title": "Blend your own botanical oil",
+        "description": "Soulfull sessions can include making a facial oil with combinations like jojoba, rosehip, sweet almond, argan, avocado, lavender, rose, mandarin, or tea tree."
       },
       {
-        "title": "The local network is excellent",
-        "description": "Chefs, ceramics studios, surf instructors, and villa hosts make the experience feel specific to place instead of imported."
+        "title": "Treat skincare as self-care",
+        "description": "One of the strongest ideas in the guide is simple: skincare can be more than routine. It can become a mindful ritual that supports rest, self-love, and reconnection."
       }
     ]
   },
   "testimonialsSection": {
-    "eyebrow": "Guest notes",
-    "headingLine1": "Designed to leave people",
-    "headingScript": "lighter, clearer, and a little sun-flushed",
+    "eyebrow": "Soulfull notes",
+    "headingLine1": "A few truths from the",
+    "headingScript": "guide that shape every experience",
     "items": [
       {
-        "quote": "It felt like a beautifully designed exhale. We had structure when we wanted it and space when we needed it.",
-        "author": "Mara V., brand strategist"
+        "quote": "Natural skincare should gently support the skin's natural balance and long-term health.",
+        "author": "From the Soulfull workshop guide"
       },
       {
-        "quote": "The venue, the food, and the pace were all sharper than a typical wellness retreat. Nothing felt generic.",
-        "author": "Elin R., creative director"
+        "quote": "Facial massage helps products absorb, encourages circulation, and supports the skin's natural glow.",
+        "author": "Soulfull ritual practice"
       },
       {
-        "quote": "We used the private format for a leadership offsite and left with clearer thinking than any hotel conference setup has ever given us.",
-        "author": "Rui P., startup founder"
+        "quote": "Skincare can be more than a routine; it can be a mindful self-care ritual.",
+        "author": "Soulfull philosophy"
       },
       {
-        "quote": "Portugal was the right call. Warm, calm, and beautiful without trying too hard.",
-        "author": "Tess L., repeat guest"
+        "quote": "Choose the oils, scents, and textures that feel right for your skin and the moment you're in.",
+        "author": "Personalised aftercare"
       }
     ]
   },
   "faqSection": {
     "eyebrow": "FAQ",
     "headingLine1": "A few practical details",
-    "headingScript": "before you book",
+    "headingScript": "before we gather",
     "items": [
       {
-        "question": "Who are these retreats for?",
-        "answer": "They are designed for solo guests, couples, friends, and private groups who want beautiful logistics, thoughtful programming, and enough breathing room to actually feel restored."
+        "question": "Who are Soulfull experiences for?",
+        "answer": "Soulfull works well for friends, private groups, hosted brand moments, hen gatherings, team wellbeing days, and guests who want a more sensory approach to skincare and ritual."
       },
       {
-        "question": "Are flights included?",
-        "answer": "Flights are not included. We provide arrival guidance, transfer coordination, and clear timing so getting in from Lisbon or Faro is straightforward."
+        "question": "Do guests need skincare knowledge?",
+        "answer": "No. Sessions are designed to feel welcoming, intuitive, and educational without becoming clinical or overwhelming."
       },
       {
-        "question": "Can this become a private company offsite?",
-        "answer": "Yes. The private formats are built for small teams that want a strategic offsite with better energy, better meals, and more intentional pacing."
+        "question": "Can you create private workshops or retreat days?",
+        "answer": "Yes. Private workshops, garden circles, and longer retreat-style experiences can all be shaped around your group, setting, and timing."
       },
       {
-        "question": "Do I need retreat experience?",
-        "answer": "No. The structure is welcoming to first-time guests. There is always a balance between guided sessions and optional downtime."
+        "question": "Do you bring products and tools?",
+        "answer": "That can be built into the format. Product testing, botanical oils, facial massage guidance, and selected tools can all be included depending on the experience you want to create."
       }
     ]
   },
   "contactSection": {
     "eyebrow": "Contact",
-    "headingLine1": "Build your Portugal edition",
-    "headingScript": "with dates, venue mood, and guest count in mind",
-    "description": "Share whether you want an open retreat place, a private group stay, or a team offsite, and we can guide you toward the right location, season, and rhythm.",
+    "headingLine1": "Bring Soulfull into your space",
+    "headingScript": "or let us shape the right setting for you",
+    "description": "Share the kind of gathering you want, the group size, and whether you are imagining a workshop, a private ritual afternoon, or a longer retreat-style experience.",
     "badges": [
-      "Private groups",
-      "Open retreats",
-      "Portugal-wide venues"
+      "Workshops",
+      "Private wellness circles",
+      "Retreat-style hosting"
     ],
     "panelTitle": "Start with a simple note",
-    "panelDescription": "Tell us your ideal month, guest count, and the balance you want between rest, movement, and work.",
+    "panelDescription": "Tell us your date window, guest count, setting, and the feeling you want people to leave with.",
     "emailLabel": "hello@soulfullalgarve.com",
     "emailHref": "mailto:hello@soulfullalgarve.com",
-    "secondaryCtaLabel": "Back to top",
-    "secondaryCtaHref": "#top",
-    "listTitle": "What to send in your enquiry",
+    "secondaryCtaLabel": "View the ritual board",
+    "secondaryCtaHref": "#botanical",
+    "listTitle": "Helpful details to include",
     "listItems": [
-      "Ideal month or season",
+      "What type of experience you want",
       "How many guests are coming",
-      "Open retreat or private format",
-      "The balance you want between rest, activity, and work"
+      "Where it would take place",
+      "Any preferred scents, skin-focus, or add-on rituals"
     ],
-    "smallPrint": "Online editing is powered by TinaCMS, so your team can update this site through the Tina sidebar and inline editor once the Tina Cloud project is connected."
+    "smallPrint": "This site is powered by TinaCMS, so your team can update copy, offerings, and imagery visually once the content is live."
   }
 }

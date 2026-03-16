@@ -12,8 +12,8 @@ type EditionItem = { name: string; detail: string };
 type ExperienceCard = { title: string; description: string; points: string[] };
 type RetreatCard = { label: string; title: string; description: string; meta: string[]; price: string; ctaLabel: string; ctaHref: string };
 type TimelineItem = { time: string; title: string; description: string };
-type PortugalLocation = { name: string; pinClass: string };
-type PortugalNote = { title: string; description: string };
+type BotanicalMarker = { name: string; pinClass: string };
+type BotanicalNote = { title: string; description: string };
 type TestimonialItem = { quote: string; author: string };
 type FaqItem = { question: string; answer: string };
 
@@ -37,8 +37,8 @@ const experienceCards = (experienceSection.cards ?? []) as ExperienceCard[];
 const retreatCards = (retreatsSection.cards ?? []) as RetreatCard[];
 const itineraryItems = (itinerarySection.items ?? []) as TimelineItem[];
 const itinerarySidePoints = (itinerarySection.sidePoints ?? []) as string[];
-const portugalLocations = (portugalSection.locations ?? []) as PortugalLocation[];
-const portugalNotes = (portugalSection.notes ?? []) as PortugalNote[];
+const botanicalMarkers = (portugalSection.locations ?? []) as BotanicalMarker[];
+const botanicalNotes = (portugalSection.notes ?? []) as BotanicalNote[];
 const testimonialItems = (testimonialsSection.items ?? []) as TestimonialItem[];
 const faqItems = (faqSection.items ?? []) as FaqItem[];
 const contactBadges = (contactSection.badges ?? []) as string[];
@@ -46,7 +46,7 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
 ---
 
 <BaseLayout
-  title={seo.title ?? siteSettings.siteName ?? 'Soulful Algarve'}
+  title={seo.title ?? siteSettings.siteName ?? 'Soulfull'}
   description={seo.description}
   canonical={siteSettings.canonicalOrigin}
   ogImage={siteSettings.ogImage}
@@ -65,8 +65,12 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
     <header class="site-header" data-site-header data-tina-field={tinaField(content, 'header')}>
       <div class="container site-header__bar">
         <a href="#top" class="brand" aria-label={`${header.brandName} home`}>
-          <span class="brand__mark" aria-hidden="true" data-tina-field={tinaField(header, 'logoMark')}>
-            {header.logoMark}
+          <span class="brand__mark" aria-hidden="true" data-tina-field={header.logoImage ? tinaField(header, 'logoImage') : tinaField(header, 'logoMark')}>
+            {header.logoImage ? (
+              <img class="brand__mark-image" src={header.logoImage} alt="" loading="eager" decoding="async" data-tina-field={tinaField(header, 'logoImage')} />
+            ) : (
+              header.logoMark
+            )}
           </span>
           <span class="brand__copy">
             <span class="brand__name" data-tina-field={tinaField(header, 'brandName')}>
@@ -146,8 +150,13 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
                 </ul>
               </div>
 
-              <aside class="hero-card" aria-label="Next retreats overview">
+              <aside class="hero-card" aria-label="Soulfull overview">
                 <div class="hero-card__sun" aria-hidden="true"></div>
+                {header.logoImage && (
+                  <div class="hero-card__logo-wrap" data-tina-field={tinaField(header, 'logoImage')}>
+                    <img class="hero-card__logo" src={header.logoImage} alt={header.logoAlt ?? `${header.brandName} logo`} loading="eager" decoding="async" />
+                  </div>
+                )}
                 <span class="hero-card__eyebrow" data-tina-field={tinaField(hero, 'cardEyebrow')}>
                   {hero.cardEyebrow}
                 </span>
@@ -171,7 +180,7 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
         </div>
       </section>
 
-      <span id="experience" class="anchor-offset" aria-hidden="true"></span>
+      <span id="philosophy" class="anchor-offset" aria-hidden="true"></span>
       <section class="section" data-tina-field={tinaField(content, 'experienceSection')}>
         <div class="container">
           <div class="section-heading section-heading--split">
@@ -207,7 +216,7 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
 
       <hr class="divider" />
 
-      <span id="retreats" class="anchor-offset" aria-hidden="true"></span>
+      <span id="offerings" class="anchor-offset" aria-hidden="true"></span>
       <section class="section" data-tina-field={tinaField(content, 'retreatsSection')}>
         <div class="container">
           <div class="section-heading">
@@ -248,7 +257,7 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
         </div>
       </section>
 
-      <span id="itinerary" class="anchor-offset" aria-hidden="true"></span>
+      <span id="flow" class="anchor-offset" aria-hidden="true"></span>
       <section class="section itinerary" data-tina-field={tinaField(content, 'itinerarySection')}>
         <div class="container">
           <div class="section-heading">
@@ -292,7 +301,7 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
         </div>
       </section>
 
-      <span id="portugal" class="anchor-offset" aria-hidden="true"></span>
+      <span id="botanical" class="anchor-offset" aria-hidden="true"></span>
       <section class="section" data-tina-field={tinaField(content, 'portugalSection')}>
         <div class="container">
           <div class="section-heading">
@@ -309,24 +318,31 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
           </div>
 
           <div class="itinerary__layout">
-            <div class="portugal-panel">
-              <div class="portugal-panel__map" aria-label={portugalSection.mapTitle}>
-                <div class="portugal-panel__shape" aria-hidden="true"></div>
-                {portugalLocations.map((location, index) => (
-                  <div class:list={['pin', location.pinClass]} data-tina-field={tinaField(portugalSection, 'locations', index)}>
-                    <div class="pin__dot" aria-hidden="true"></div>
-                    <span>{location.name}</span>
+            <article class="ritual-board" aria-label={portugalSection.mapTitle}>
+              <div class="ritual-board__glow" aria-hidden="true"></div>
+              {header.logoImage && (
+                <div class="ritual-board__logo-wrap" data-tina-field={tinaField(header, 'logoImage')}>
+                  <img class="ritual-board__logo" src={header.logoImage} alt={header.logoAlt ?? `${header.brandName} logo`} loading="lazy" decoding="async" />
+                </div>
+              )}
+              <p class="ritual-board__title" data-tina-field={tinaField(portugalSection, 'mapTitle')}>
+                {portugalSection.mapTitle}
+              </p>
+              <div class="ritual-board__tags">
+                {botanicalMarkers.map((marker, index) => (
+                  <div class:list={['ritual-tag', marker.pinClass]} data-tina-field={tinaField(portugalSection, 'locations', index)}>
+                    <span>{marker.name}</span>
                   </div>
                 ))}
               </div>
-            </div>
+            </article>
 
             <div class="timeline">
-              {portugalNotes.map((note, index) => (
+              {botanicalNotes.map((note, index) => (
                 <article class="timeline__item" data-tina-field={tinaField(portugalSection, 'notes', index)}>
                   <div class="timeline__title">
                     <h3>{note.title}</h3>
-                    <span class="timeline__time">Portugal</span>
+                    <span class="timeline__time">Soulfull</span>
                   </div>
                   <p>{note.description}</p>
                 </article>
@@ -336,6 +352,7 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
         </div>
       </section>
 
+      <span id="notes" class="anchor-offset" aria-hidden="true"></span>
       <section class="section" data-tina-field={tinaField(content, 'testimonialsSection')}>
         <div class="container">
           <div class="section-heading">

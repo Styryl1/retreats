@@ -164,18 +164,18 @@
   },
   "itinerarySection": {
     "eyebrow": "Workshop flow",
-    "headingLine1": "A Soulfull session moves",
+    "headingLine1": "A Soulfull worshop ",
     "headingScript": "from learning, to touch, to shared ritual",
     "items": [
       {
         "time": "01",
-        "title": "Arrive and settle",
+        "title": "Arrive and settle ",
         "description": "Guests land into a calm, hosted atmosphere with tea, gentle welcome notes, and a sense of stepping into a slower rhythm."
       },
       {
         "time": "02",
         "title": "Understand the skin",
-        "description": "We explore what natural skincare really means, why barrier support matters, and how organic ingredients can work in harmony with the skin."
+        "description": "We explore what natural skincare really means, how to create a soulfull at home skincare routine and how organic ingredients can work in harmony with the skin."
       },
       {
         "time": "03",
@@ -193,7 +193,7 @@
         "description": "The session closes with grazing boards, fruit platters, drinks, and enough unhurried time for conversation, questions, and absorption."
       }
     ],
-    "sideEyebrow": "What every format keeps",
+    "sideEyebrow": "",
     "sideTitle": "The emotional rhythm stays the same",
     "sideDescription": "Calm arrival, sensory learning, personal ritual, and a hosted ending that feels celebratory rather than abrupt.",
     "sidePoints": [

@@ -238,9 +238,9 @@
     ]
   },
   "testimonialsSection": {
-    "eyebrow": "Soulfull notes",
-    "headingLine1": "A few truths from the",
-    "headingScript": "guide that shape every experience",
+    "eyebrow": "Soulfull notes ",
+    "headingLine1": "",
+    "headingScript": "",
     "items": [
       {
         "quote": "Natural skincare should gently support the skin's natural balance and long-term health.",
@@ -285,16 +285,16 @@
   },
   "contactSection": {
     "eyebrow": "Contact",
-    "headingLine1": "Bring Soulfull into your space",
-    "headingScript": "or let us shape the right setting for you",
-    "description": "Share the kind of gathering you want, the group size, and whether you are imagining a workshop, a private ritual afternoon, or a longer retreat-style experience.",
+    "headingLine1": "Take time for yourself, you deserve it ",
+    "headingScript": "",
+    "description": "Join us for a day retreat, holistic skincare workshop or a private healing session & experience the beauty of holistic living in a peaceful garden setting. ",
     "badges": [
-      "Workshops",
+      "Skincare workshops",
       "Private wellness circles",
-      "Retreat-style hosting"
+      "Wellness day retreats "
     ],
-    "panelTitle": "Start with a simple note",
-    "panelDescription": "Tell us your date window, guest count, setting, and the feeling you want people to leave with.",
+    "panelTitle": "Book your experience ",
+    "panelDescription": "View upcoming retreats & workshops ",
     "emailLabel": "hello@soulfullalgarve.com",
     "emailHref": "mailto:hello@soulfullalgarve.com",
     "secondaryCtaLabel": "View the ritual board",
@@ -303,7 +303,6 @@
     "listItems": [
       "What type of experience you want",
       "How many guests are coming",
-      "Where it would take place",
       "Any preferred scents, skin-focus, or add-on rituals"
     ],
     "smallPrint": "This site is powered by TinaCMS, so your team can update copy, offerings, and imagery visually once the content is live."

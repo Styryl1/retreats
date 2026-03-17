@@ -53,20 +53,20 @@ var site_content_default = {
     ]
   },
   hero: {
-    eyebrow: "Holistic skincare, slow ritual, and sun-soaked gathering",
+    eyebrow: "Holistic skincare workshop & wellness day retreats",
     titleLine1: "Soulfull",
-    scriptLine: "rituals,",
-    titleLine2: "for skin, rest, and togetherness.",
-    bodyLead: "Organic skincare workshops, private wellness circles, and retreat-style experiences held with warmth.",
-    description: "Soulfull brings people together through botanical skincare, facial massage, nervous-system-softening rituals, and beautiful shared tables. Every experience is designed to feel grounding, sensory, and genuinely nourishing.",
+    scriptLine: "Algarve",
+    titleLine2: "",
+    bodyLead: "",
+    description: "Welcome to Soulfull, \n\nA space to slow down, reconnect, and nourish mind, body & soul. \nWe create holistic wellness experiences designed to step away from everyday busy life and return to yourself. Surrounded by nature & gentle energy ",
     primaryCtaLabel: "See the ways to gather",
     primaryCtaHref: "#offerings",
-    secondaryCtaLabel: "Explore the workshop flow",
+    secondaryCtaLabel: "Organic skincare workshop",
     secondaryCtaHref: "#flow",
     meta: [
-      "Holistic skincare workshops",
-      "Private wellness gatherings",
-      "Retreat-style hosting"
+      "Wellness day retreats ",
+      "Private wellness retreats",
+      "Holistic treatments "
     ],
     cardEyebrow: "What Soulfull holds",
     cardTitle: "Three ways to gather",
@@ -88,21 +88,21 @@ var site_content_default = {
     cardCtaHref: "#contact"
   },
   experienceSection: {
-    eyebrow: "Philosophy",
-    headingLine1: "Rooted in plants,",
-    headingScript: "touch, and slower nervous systems",
-    description: "The Soulfull guide makes the intention clear: support the skin gently, choose ingredients that feel familiar, and turn skincare into ritual rather than pressure.",
+    eyebrow: "Our Philosophy",
+    headingLine1: "Nourish your mind, body & soul through nature, connection & holistic living ",
+    headingScript: "Slow down the nervous system & relax  ",
+    description: "Our intention is to create a warm, welcoming environment where you can explore holistic living, learn new practises, and take time to relax and nurture yourself. ",
     cards: [
       {
-        title: "Natural skincare without overwhelm",
-        description: "Everything starts with ingredients that feel intuitive: botanical oils, floral waters, minerals, and shorter ingredient lists that support the skin rather than fight it.",
+        title: "Pure organic skincare to treat from within ",
+        description: "Everything starts with ingredients that feel intuitive, botanical oils, floral waters, minerals, and shorter ingredient lists that support the skin rather than fight it.",
         points: [
           "Barrier support, nourishment, and long-term skin health come before quick fixes.",
-          "Organic ingredients are chosen for familiarity, softness, and sensory comfort."
+          "Organic ingredients are chosen to promote the hormonal balance & to protect our skin "
         ]
       },
       {
-        title: "Holistic ritual, not just products",
+        title: "",
         description: "Soulfull treats skincare as a whole-body ritual that includes facial massage, breath, aromatherapy, and moments of self-connection.",
         points: [
           "Guests can work with hands, gua sha, or crystal tools to support circulation and glow.",
@@ -130,7 +130,7 @@ var site_content_default = {
         title: "Holistic Skincare Workshop",
         description: "A guided group experience exploring organic skincare, botanical ingredients, facial massage, and how to build an at-home ritual that actually feels sustainable.",
         meta: [
-          "Best for 8 to 20 guests",
+          "Best for 4 to 10 guests ",
           "Hands-on and educational",
           "Products, scent, and touch"
         ],
@@ -140,12 +140,12 @@ var site_content_default = {
       },
       {
         label: "Private Gathering",
-        title: "Soulfull Garden Circle",
+        title: "Soulfull wellness day retreat ",
         description: "A softer private format for birthdays, hen gatherings, brand hosting, or team wellbeing days where skincare ritual becomes the centrepiece.",
         meta: [
-          "Garden, villa, or hosted venue",
-          "Tea, grazing boards, and ritual",
-          "Friends, brands, or teams"
+          "In our sacred sancuatary ",
+          "Grazing boards & wines ",
+          "Holistic treatments & workshops"
         ],
         price: "Designed around your date, group, and mood",
         ctaLabel: "Enquire",
@@ -154,11 +154,11 @@ var site_content_default = {
       {
         label: "Retreat Experience",
         title: "Slow Wellness Retreat",
-        description: "A longer-form Soulfull gathering that blends skincare, rest, sun, ritual, and nourishing shared time into a retreat-shaped day or weekend.",
+        description: "Relax, unwind & enjoy a peaceful day filled with holistic treatments, grazing boards, fruit platters, lovely wines & pool side relaxation. ",
         meta: [
-          "Seasonal retreat days or weekends",
-          "Optional breathwork or body rituals",
-          "Calm, sensory hosting"
+          "Seasonal retreat days ",
+          "Holistic treatments",
+          "Calm environment "
         ],
         price: "Planned as a bespoke experience",
         ctaLabel: "Enquire",
@@ -168,18 +168,18 @@ var site_content_default = {
   },
   itinerarySection: {
     eyebrow: "Workshop flow",
-    headingLine1: "A Soulfull session moves",
+    headingLine1: "A Soulfull worshop ",
     headingScript: "from learning, to touch, to shared ritual",
     items: [
       {
         time: "01",
-        title: "Arrive and settle",
+        title: "Arrive and settle ",
         description: "Guests land into a calm, hosted atmosphere with tea, gentle welcome notes, and a sense of stepping into a slower rhythm."
       },
       {
         time: "02",
         title: "Understand the skin",
-        description: "We explore what natural skincare really means, why barrier support matters, and how organic ingredients can work in harmony with the skin."
+        description: "We explore what natural skincare really means, how to create a soulfull at home skincare routine and how organic ingredients can work in harmony with the skin."
       },
       {
         time: "03",
@@ -197,7 +197,7 @@ var site_content_default = {
         description: "The session closes with grazing boards, fruit platters, drinks, and enough unhurried time for conversation, questions, and absorption."
       }
     ],
-    sideEyebrow: "What every format keeps",
+    sideEyebrow: "",
     sideTitle: "The emotional rhythm stays the same",
     sideDescription: "Calm arrival, sensory learning, personal ritual, and a hosted ending that feels celebratory rather than abrupt.",
     sidePoints: [
@@ -214,15 +214,15 @@ var site_content_default = {
     mapTitle: "Soulfull ritual board",
     locations: [
       {
-        name: "Rose and rose water",
+        name: "Botanical facial oil ",
         pinClass: "tag--rose"
       },
       {
-        name: "Jojoba and calendula",
+        name: "Organic skincare guide",
         pinClass: "tag--jojoba"
       },
       {
-        name: "Lavender and mandarin",
+        name: "Personalised skin care routine",
         pinClass: "tag--lavender"
       }
     ],
@@ -242,9 +242,9 @@ var site_content_default = {
     ]
   },
   testimonialsSection: {
-    eyebrow: "Soulfull notes",
-    headingLine1: "A few truths from the",
-    headingScript: "guide that shape every experience",
+    eyebrow: "Soulfull notes ",
+    headingLine1: "",
+    headingScript: "",
     items: [
       {
         quote: "Natural skincare should gently support the skin's natural balance and long-term health.",
@@ -289,16 +289,16 @@ var site_content_default = {
   },
   contactSection: {
     eyebrow: "Contact",
-    headingLine1: "Bring Soulfull into your space",
-    headingScript: "or let us shape the right setting for you",
-    description: "Share the kind of gathering you want, the group size, and whether you are imagining a workshop, a private ritual afternoon, or a longer retreat-style experience.",
+    headingLine1: "Take time for yourself, you deserve it ",
+    headingScript: "",
+    description: "Join us for a day retreat, holistic skincare workshop or a private healing session & experience the beauty of holistic living in a peaceful garden setting. ",
     badges: [
-      "Workshops",
+      "Skincare workshops",
       "Private wellness circles",
-      "Retreat-style hosting"
+      "Wellness day retreats "
     ],
-    panelTitle: "Start with a simple note",
-    panelDescription: "Tell us your date window, guest count, setting, and the feeling you want people to leave with.",
+    panelTitle: "Book your experience ",
+    panelDescription: "View upcoming retreats & workshops ",
     emailLabel: "hello@soulfullalgarve.com",
     emailHref: "mailto:hello@soulfullalgarve.com",
     secondaryCtaLabel: "View the ritual board",
@@ -307,7 +307,6 @@ var site_content_default = {
     listItems: [
       "What type of experience you want",
       "How many guests are coming",
-      "Where it would take place",
       "Any preferred scents, skin-focus, or add-on rituals"
     ],
     smallPrint: "This site is powered by TinaCMS, so your team can update copy, offerings, and imagery visually once the content is live."

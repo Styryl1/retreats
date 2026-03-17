@@ -3,6 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TinaInlineBridge from '../components/react/TinaInlineBridge.tsx';
 import { loadSiteDocument } from '../data/siteContent';
 import { tinaField } from 'tinacms/dist/react';
+import { Image } from 'astro:assets';
+import botanicalBeautyProductImage from '../assets/soulfull/botanical-beauty-product.jpg';
+import crystalHealingFacialImage from '../assets/soulfull/crystal-healing-facial.jpg';
+import crystalHealingFacialTwoImage from '../assets/soulfull/crystal-healing-facial-2.jpg';
+import decoratedDinnerTableImage from '../assets/soulfull/decorated-dinner-table.jpg';
+import decoratedTableTwoImage from '../assets/soulfull/decorated-table-2.jpg';
+import foodPlatterImage from '../assets/soulfull/food-platter.jpg';
+import gardenImage from '../assets/soulfull/garden.jpg';
+import massageTableImage from '../assets/soulfull/massage-table.jpg';
 import '../styles/index.css';
 
 const { siteContent, tinaBridgeProps } = await loadSiteDocument();
@@ -43,6 +52,23 @@ const testimonialItems = (testimonialsSection.items ?? []) as TestimonialItem[];
 const faqItems = (faqSection.items ?? []) as FaqItem[];
 const contactBadges = (contactSection.badges ?? []) as string[];
 const contactListItems = (contactSection.listItems ?? []) as string[];
+
+const retreatCardMedia = [
+  {
+    src: botanicalBeautyProductImage,
+    alt: 'Botanical skincare oil used during Soulfull holistic skincare workshops in the Algarve',
+  },
+  {
+    src: decoratedTableTwoImage,
+    alt: 'Outdoor table styling for a private Soulfull wellness gathering in the Algarve',
+  },
+  {
+    src: foodPlatterImage,
+    alt: 'Grazing platter served during a Soulfull retreat-style wellness day',
+  },
+] as const;
+
+const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || testimonialsSection.headingScript);
 ---
 
 <BaseLayout
@@ -125,12 +151,14 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
                   {hero.eyebrow}
                 </span>
                 <h1 class="hero__title">
-                  <span data-tina-field={tinaField(hero, 'titleLine1')}>{hero.titleLine1}</span>
-                  <span class="script-line" data-tina-field={tinaField(hero, 'scriptLine')}>
-                    {hero.scriptLine}
-                  </span>
-                  <span data-tina-field={tinaField(hero, 'titleLine2')}>{hero.titleLine2}</span>
-                  <strong data-tina-field={tinaField(hero, 'bodyLead')}>{hero.bodyLead}</strong>
+                  {hero.titleLine1 && <span data-tina-field={tinaField(hero, 'titleLine1')}>{hero.titleLine1}</span>}
+                  {hero.scriptLine && (
+                    <span class="script-line" data-tina-field={tinaField(hero, 'scriptLine')}>
+                      {hero.scriptLine}
+                    </span>
+                  )}
+                  {hero.titleLine2 && <span data-tina-field={tinaField(hero, 'titleLine2')}>{hero.titleLine2}</span>}
+                  {hero.bodyLead && <strong data-tina-field={tinaField(hero, 'bodyLead')}>{hero.bodyLead}</strong>}
                 </h1>
                 <p class="hero__lede" data-tina-field={tinaField(hero, 'description')}>
                   {hero.description}
@@ -150,31 +178,69 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
                 </ul>
               </div>
 
-              <aside class="hero-card" aria-label="Soulfull overview">
-                <div class="hero-card__sun" aria-hidden="true"></div>
-                {header.logoImage && (
-                  <div class="hero-card__logo-wrap" data-tina-field={tinaField(header, 'logoImage')}>
-                    <img class="hero-card__logo" src={header.logoImage} alt={header.logoAlt ?? `${header.brandName} logo`} loading="eager" decoding="async" />
-                  </div>
-                )}
-                <span class="hero-card__eyebrow" data-tina-field={tinaField(hero, 'cardEyebrow')}>
-                  {hero.cardEyebrow}
-                </span>
-                <h2 class="hero-card__title" data-tina-field={tinaField(hero, 'cardTitle')}>
-                  {hero.cardTitle}
-                </h2>
-                <ul class="hero-card__list">
-                  {heroEditions.map((item, index) => (
-                    <li data-tina-field={tinaField(hero, 'editions', index)}>
-                      <strong>{item.name}</strong>
-                      <span>{item.detail}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a href={hero.cardCtaHref} class="button button--ghost" data-tina-field={tinaField(hero, 'cardCtaLabel')}>
-                  {hero.cardCtaLabel}
-                </a>
-              </aside>
+              <div class="hero-media" aria-label="Soulfull experience gallery">
+                <figure class="hero-media__image hero-media__image--garden">
+                  <Image
+                    src={gardenImage}
+                    alt="Poolside garden sanctuary in the Algarve for Soulfull wellness retreats"
+                    widths={[720, 1080]}
+                    sizes="(max-width: 959px) 100vw, 34vw"
+                    loading="eager"
+                    format="webp"
+                  />
+                  <figcaption>Garden sanctuary</figcaption>
+                </figure>
+
+                <figure class="hero-media__image hero-media__image--facial">
+                  <Image
+                    src={crystalHealingFacialTwoImage}
+                    alt="Holistic crystal facial treatment offered as part of Soulfull wellness experiences"
+                    widths={[360, 540]}
+                    sizes="(max-width: 959px) 48vw, 14vw"
+                    loading="eager"
+                    format="webp"
+                  />
+                  <figcaption>Holistic treatments</figcaption>
+                </figure>
+
+                <figure class="hero-media__image hero-media__image--table">
+                  <Image
+                    src={decoratedDinnerTableImage}
+                    alt="Sunlit outdoor dining table prepared for a Soulfull private gathering"
+                    widths={[480, 720]}
+                    sizes="(max-width: 959px) 48vw, 18vw"
+                    loading="eager"
+                    format="webp"
+                  />
+                  <figcaption>Hosted gatherings</figcaption>
+                </figure>
+
+                <aside class="hero-snapshot" aria-label="Soulfull overview">
+                  <div class="hero-snapshot__sun" aria-hidden="true"></div>
+                  {header.logoImage && (
+                    <div class="hero-snapshot__logo-wrap" data-tina-field={tinaField(header, 'logoImage')}>
+                      <img class="hero-snapshot__logo" src={header.logoImage} alt={header.logoAlt ?? `${header.brandName} logo`} loading="eager" decoding="async" />
+                    </div>
+                  )}
+                  <span class="hero-snapshot__eyebrow" data-tina-field={tinaField(hero, 'cardEyebrow')}>
+                    {hero.cardEyebrow}
+                  </span>
+                  <h2 class="hero-snapshot__title" data-tina-field={tinaField(hero, 'cardTitle')}>
+                    {hero.cardTitle}
+                  </h2>
+                  <ul class="hero-snapshot__list">
+                    {heroEditions.map((item, index) => (
+                      <li data-tina-field={tinaField(hero, 'editions', index)}>
+                        <strong>{item.name}</strong>
+                        <span>{item.detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={hero.cardCtaHref} class="button button--ghost" data-tina-field={tinaField(hero, 'cardCtaLabel')}>
+                    {hero.cardCtaLabel}
+                  </a>
+                </aside>
+              </div>
             </div>
           </div>
         </div>
@@ -183,31 +249,58 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
       <span id="philosophy" class="anchor-offset" aria-hidden="true"></span>
       <section class="section" data-tina-field={tinaField(content, 'experienceSection')}>
         <div class="container">
-          <div class="section-heading section-heading--split">
-            <div>
-              <span class="eyebrow" data-tina-field={tinaField(experienceSection, 'eyebrow')}>
-                {experienceSection.eyebrow}
-              </span>
-              <h2>
-                <span data-tina-field={tinaField(experienceSection, 'headingLine1')}>{experienceSection.headingLine1}</span>
-                <span class="script-line" data-tina-field={tinaField(experienceSection, 'headingScript')}>
-                  {experienceSection.headingScript}
+          <div class="experience__intro">
+            <div class="section-heading section-heading--split">
+              <div>
+                <span class="eyebrow" data-tina-field={tinaField(experienceSection, 'eyebrow')}>
+                  {experienceSection.eyebrow}
                 </span>
-              </h2>
+                <h2>
+                  <span data-tina-field={tinaField(experienceSection, 'headingLine1')}>{experienceSection.headingLine1}</span>
+                  <span class="script-line" data-tina-field={tinaField(experienceSection, 'headingScript')}>
+                    {experienceSection.headingScript}
+                  </span>
+                </h2>
+              </div>
+              <p data-tina-field={tinaField(experienceSection, 'description')}>{experienceSection.description}</p>
             </div>
-            <p data-tina-field={tinaField(experienceSection, 'description')}>{experienceSection.description}</p>
+
+            <aside class="philosophy-media" aria-label="Soulfull philosophy in practice">
+              <figure class="philosophy-media__main">
+                <Image
+                  src={botanicalBeautyProductImage}
+                  alt="Soulfull botanical beauty oil held in a tropical garden setting"
+                  widths={[560, 840]}
+                  sizes="(max-width: 959px) 100vw, 30vw"
+                  loading="lazy"
+                  format="webp"
+                />
+              </figure>
+              <figure class="philosophy-media__detail">
+                <Image
+                  src={massageTableImage}
+                  alt="Prepared massage table with Soulfull treatment tools and natural textures"
+                  widths={[320, 480]}
+                  sizes="(max-width: 959px) 52vw, 16vw"
+                  loading="lazy"
+                  format="webp"
+                />
+              </figure>
+            </aside>
           </div>
 
           <div class="experience__grid">
             {experienceCards.map((card, index) => (
               <article class="card" data-tina-field={tinaField(experienceSection, 'cards', index)}>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-                <ul class="feature-list">
-                  {(card.points ?? []).map((point, pointIndex) => (
-                    <li data-tina-field={tinaField(card, 'points', pointIndex)}>{point}</li>
-                  ))}
-                </ul>
+                {card.title && <h3>{card.title}</h3>}
+                {card.description && <p>{card.description}</p>}
+                {(card.points ?? []).length > 0 && (
+                  <ul class="feature-list">
+                    {(card.points ?? []).map((point, pointIndex) => (
+                      <li data-tina-field={tinaField(card, 'points', pointIndex)}>{point}</li>
+                    ))}
+                  </ul>
+                )}
               </article>
             ))}
           </div>
@@ -233,26 +326,44 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
           </div>
 
           <div class="retreats__grid">
-            {retreatCards.map((retreat, index) => (
-              <article class="retreat-card" data-tina-field={tinaField(retreatsSection, 'cards', index)}>
-                <div class="retreat-card__top">
-                  <span class="retreat-card__pill">{retreat.label}</span>
-                </div>
-                <h3>{retreat.title}</h3>
-                <p>{retreat.description}</p>
-                <ul class="retreat-card__meta">
-                  {(retreat.meta ?? []).map((item, metaIndex) => (
-                    <li data-tina-field={tinaField(retreat, 'meta', metaIndex)}>{item}</li>
-                  ))}
-                </ul>
-                <div class="retreat-card__footer">
-                  <span class="retreat-card__price">{retreat.price}</span>
-                  <a href={retreat.ctaHref} class="button button--ghost">
-                    {retreat.ctaLabel}
-                  </a>
-                </div>
-              </article>
-            ))}
+            {retreatCards.map((retreat, index) => {
+              const retreatMedia = retreatCardMedia[index];
+
+              return (
+                <article class="retreat-card" data-tina-field={tinaField(retreatsSection, 'cards', index)}>
+                  {retreatMedia && (
+                    <figure class="retreat-card__media">
+                      <Image
+                        src={retreatMedia.src}
+                        alt={retreatMedia.alt}
+                        widths={[560, 840]}
+                        sizes="(max-width: 959px) 100vw, 26vw"
+                        loading="lazy"
+                        format="webp"
+                      />
+                    </figure>
+                  )}
+                  <div class="retreat-card__body">
+                    <div class="retreat-card__top">
+                      <span class="retreat-card__pill">{retreat.label}</span>
+                    </div>
+                    <h3>{retreat.title}</h3>
+                    <p>{retreat.description}</p>
+                    <ul class="retreat-card__meta">
+                      {(retreat.meta ?? []).map((item, metaIndex) => (
+                        <li data-tina-field={tinaField(retreat, 'meta', metaIndex)}>{item}</li>
+                      ))}
+                    </ul>
+                    <div class="retreat-card__footer">
+                      <span class="retreat-card__price">{retreat.price}</span>
+                      <a href={retreat.ctaHref} class="button button--ghost">
+                        {retreat.ctaLabel}
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -285,17 +396,45 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
               ))}
             </div>
 
-            <aside class="portugal-panel">
-              <span class="eyebrow" data-tina-field={tinaField(itinerarySection, 'sideEyebrow')}>
-                {itinerarySection.sideEyebrow}
-              </span>
-              <h3 data-tina-field={tinaField(itinerarySection, 'sideTitle')}>{itinerarySection.sideTitle}</h3>
-              <p data-tina-field={tinaField(itinerarySection, 'sideDescription')}>{itinerarySection.sideDescription}</p>
-              <ul class="feature-list">
-                {itinerarySidePoints.map((point, index) => (
-                  <li data-tina-field={tinaField(itinerarySection, 'sidePoints', index)}>{point}</li>
-                ))}
-              </ul>
+            <aside class="ritual-story" aria-label="Soulfull workshop atmosphere">
+              <figure class="ritual-story__image ritual-story__image--portrait">
+                <Image
+                  src={crystalHealingFacialImage}
+                  alt="Crystal healing facial ritual in the Soulfull treatment room"
+                  widths={[480, 720]}
+                  sizes="(max-width: 959px) 100vw, 20vw"
+                  loading="lazy"
+                  format="webp"
+                />
+              </figure>
+
+              <div class="ritual-story__details">
+                <figure class="ritual-story__image ritual-story__image--detail">
+                  <Image
+                    src={massageTableImage}
+                    alt="Massage table prepared with treatment tools for a Soulfull session"
+                    widths={[360, 540]}
+                    sizes="(max-width: 959px) 100vw, 22vw"
+                    loading="lazy"
+                    format="webp"
+                  />
+                </figure>
+
+                <div class="ritual-story__copy">
+                  {itinerarySection.sideEyebrow && (
+                    <span class="eyebrow" data-tina-field={tinaField(itinerarySection, 'sideEyebrow')}>
+                      {itinerarySection.sideEyebrow}
+                    </span>
+                  )}
+                  <h3 data-tina-field={tinaField(itinerarySection, 'sideTitle')}>{itinerarySection.sideTitle}</h3>
+                  <p data-tina-field={tinaField(itinerarySection, 'sideDescription')}>{itinerarySection.sideDescription}</p>
+                  <ul class="feature-list">
+                    {itinerarySidePoints.map((point, index) => (
+                      <li data-tina-field={tinaField(itinerarySection, 'sidePoints', index)}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </aside>
           </div>
         </div>
@@ -319,21 +458,32 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
 
           <div class="itinerary__layout">
             <article class="ritual-board" aria-label={portugalSection.mapTitle}>
-              <div class="ritual-board__glow" aria-hidden="true"></div>
+              <Image
+                class="ritual-board__image"
+                src={botanicalBeautyProductImage}
+                alt="Botanical beauty oil featured in Soulfull skincare rituals"
+                widths={[640, 960]}
+                sizes="(max-width: 959px) 100vw, 32vw"
+                loading="lazy"
+                format="webp"
+              />
+              <div class="ritual-board__veil" aria-hidden="true"></div>
               {header.logoImage && (
-                <div class="ritual-board__logo-wrap" data-tina-field={tinaField(header, 'logoImage')}>
+                <div class="ritual-board__seal" data-tina-field={tinaField(header, 'logoImage')}>
                   <img class="ritual-board__logo" src={header.logoImage} alt={header.logoAlt ?? `${header.brandName} logo`} loading="lazy" decoding="async" />
                 </div>
               )}
-              <p class="ritual-board__title" data-tina-field={tinaField(portugalSection, 'mapTitle')}>
-                {portugalSection.mapTitle}
-              </p>
-              <div class="ritual-board__tags">
-                {botanicalMarkers.map((marker, index) => (
-                  <div class:list={['ritual-tag', marker.pinClass]} data-tina-field={tinaField(portugalSection, 'locations', index)}>
-                    <span>{marker.name}</span>
-                  </div>
-                ))}
+              <div class="ritual-board__content">
+                <p class="ritual-board__title" data-tina-field={tinaField(portugalSection, 'mapTitle')}>
+                  {portugalSection.mapTitle}
+                </p>
+                <div class="ritual-board__tags">
+                  {botanicalMarkers.map((marker, index) => (
+                    <div class:list={['ritual-tag', marker.pinClass]} data-tina-field={tinaField(portugalSection, 'locations', index)}>
+                      <span>{marker.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </article>
 
@@ -359,12 +509,14 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
             <span class="eyebrow" data-tina-field={tinaField(testimonialsSection, 'eyebrow')}>
               {testimonialsSection.eyebrow}
             </span>
-            <h2>
-              <span data-tina-field={tinaField(testimonialsSection, 'headingLine1')}>{testimonialsSection.headingLine1}</span>
-              <span class="script-line" data-tina-field={tinaField(testimonialsSection, 'headingScript')}>
-                {testimonialsSection.headingScript}
-              </span>
-            </h2>
+            {testimonialHeadingVisible && (
+              <h2>
+                <span data-tina-field={tinaField(testimonialsSection, 'headingLine1')}>{testimonialsSection.headingLine1}</span>
+                <span class="script-line" data-tina-field={tinaField(testimonialsSection, 'headingScript')}>
+                  {testimonialsSection.headingScript}
+                </span>
+              </h2>
+            )}
           </div>
 
           <div class="testimonials__grid">

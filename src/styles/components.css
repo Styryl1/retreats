@@ -470,12 +470,6 @@
   position: relative;
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-areas:
-    'main main'
-    'side table'
-    'snapshot snapshot';
-  align-items: start;
 }
 
 .hero-media__image,
@@ -485,14 +479,19 @@
 .ritual-story__image {
   position: relative;
   overflow: hidden;
-  aspect-ratio: var(--media-ratio, 5 / 4);
   border-radius: 28px;
   background: rgba(255, 249, 241, 0.84);
   border: 1px solid rgba(255, 255, 255, 0.58);
   box-shadow: var(--shadow-soft);
 }
 
-.hero-media__image > picture,
+.philosophy-media__main,
+.philosophy-media__detail,
+.retreat-card__media,
+.ritual-story__image {
+  aspect-ratio: var(--media-ratio, 5 / 4);
+}
+
 .philosophy-media__main > picture,
 .philosophy-media__detail > picture,
 .retreat-card__media > picture,
@@ -515,15 +514,19 @@
 }
 
 .hero-media__image--garden {
-  grid-area: main;
+  min-height: 360px;
 }
 
 .hero-media__image--facial {
-  grid-area: side;
+  min-height: 172px;
 }
 
 .hero-media__image--table {
-  grid-area: table;
+  min-height: 172px;
+}
+
+.hero-media__image img {
+  object-position: center center;
 }
 
 .hero-media__image figcaption {
@@ -551,7 +554,6 @@
 
 .hero-snapshot {
   position: relative;
-  grid-area: snapshot;
   display: grid;
   gap: 18px;
   padding: 24px;
@@ -1139,16 +1141,18 @@
   }
 
   .hero-media {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    grid-template-areas:
-      'main side'
-      'main table'
-      'snapshot snapshot';
-    align-items: start;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    grid-template-rows: 1fr 1fr auto;
+    align-items: stretch;
   }
 
   .hero-media__image--garden {
-    height: 100%;
+    grid-row: 1 / span 2;
+    min-height: 100%;
+  }
+
+  .hero-snapshot {
+    grid-column: 1 / -1;
   }
 
   .experience__intro {

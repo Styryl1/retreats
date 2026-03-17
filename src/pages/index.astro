@@ -64,36 +64,6 @@ const contactListItems = (contactSection.listItems ?? []) as string[];
 
 const frameStyle = (ratio: string, position: string) => `--media-ratio: ${ratio}; --media-position: ${position};`;
 
-const heroMedia = {
-  garden: {
-    src: gardenImage,
-    alt: 'Poolside garden sanctuary in the Algarve for Soulfull wellness retreats',
-    widths: [720, 1080],
-    sizes: '(max-width: 959px) 100vw, 32vw',
-    ratio: '5 / 4',
-    position: 'center 60%',
-    label: 'Garden sanctuary',
-  },
-  facial: {
-    src: massageTableImage,
-    alt: 'Prepared massage table with natural textures for a Soulfull wellness ritual',
-    widths: [480, 720],
-    sizes: '(max-width: 959px) 48vw, 16vw',
-    ratio: '5 / 6',
-    position: 'center 50%',
-    label: 'Holistic treatments',
-  },
-  table: {
-    src: decoratedDinnerTableImage,
-    alt: 'Sunlit outdoor dining table prepared for a Soulfull private gathering',
-    widths: [480, 720],
-    sizes: '(max-width: 959px) 48vw, 16vw',
-    ratio: '1 / 1',
-    position: 'center 62%',
-    label: 'Hosted gatherings',
-  },
-} satisfies Record<string, FramedMedia>;
-
 const philosophyMedia = {
   main: {
     src: botanicalBeautyProductImage,
@@ -279,40 +249,40 @@ const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || te
               </div>
 
               <div class="hero-media" aria-label="Soulfull experience gallery">
-                <figure class="hero-media__image hero-media__image--garden" style={frameStyle(heroMedia.garden.ratio, heroMedia.garden.position)}>
+                <figure class="hero-media__image hero-media__image--garden">
                   <Image
-                    src={heroMedia.garden.src}
-                    alt={heroMedia.garden.alt}
-                    widths={heroMedia.garden.widths}
-                    sizes={heroMedia.garden.sizes}
+                    src={gardenImage}
+                    alt="Poolside garden sanctuary in the Algarve for Soulfull wellness retreats"
+                    widths={[720, 1080]}
+                    sizes="(max-width: 959px) 100vw, 34vw"
                     loading="eager"
                     format="webp"
                   />
-                  <figcaption>{heroMedia.garden.label}</figcaption>
+                  <figcaption>Garden sanctuary</figcaption>
                 </figure>
 
-                <figure class="hero-media__image hero-media__image--facial" style={frameStyle(heroMedia.facial.ratio, heroMedia.facial.position)}>
+                <figure class="hero-media__image hero-media__image--facial">
                   <Image
-                    src={heroMedia.facial.src}
-                    alt={heroMedia.facial.alt}
-                    widths={heroMedia.facial.widths}
-                    sizes={heroMedia.facial.sizes}
+                    src={crystalHealingFacialTwoImage}
+                    alt="Holistic crystal facial treatment offered as part of Soulfull wellness experiences"
+                    widths={[360, 540]}
+                    sizes="(max-width: 959px) 48vw, 14vw"
                     loading="eager"
                     format="webp"
                   />
-                  <figcaption>{heroMedia.facial.label}</figcaption>
+                  <figcaption>Holistic treatments</figcaption>
                 </figure>
 
-                <figure class="hero-media__image hero-media__image--table" style={frameStyle(heroMedia.table.ratio, heroMedia.table.position)}>
+                <figure class="hero-media__image hero-media__image--table">
                   <Image
-                    src={heroMedia.table.src}
-                    alt={heroMedia.table.alt}
-                    widths={heroMedia.table.widths}
-                    sizes={heroMedia.table.sizes}
+                    src={decoratedDinnerTableImage}
+                    alt="Sunlit outdoor dining table prepared for a Soulfull private gathering"
+                    widths={[480, 720]}
+                    sizes="(max-width: 959px) 48vw, 18vw"
                     loading="eager"
                     format="webp"
                   />
-                  <figcaption>{heroMedia.table.label}</figcaption>
+                  <figcaption>Hosted gatherings</figcaption>
                 </figure>
 
                 <aside class="hero-snapshot" aria-label="Soulfull overview">

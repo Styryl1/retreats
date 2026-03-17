@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TinaInlineBridge from '../components/react/TinaInlineBridge.tsx';
 import { loadSiteDocument } from '../data/siteContent';
 import { tinaField } from 'tinacms/dist/react';
-import { Image } from 'astro:assets';
+import { Image, type ImageMetadata } from 'astro:assets';
 import botanicalBeautyProductImage from '../assets/soulfull/botanical-beauty-product.jpg';
 import crystalHealingFacialImage from '../assets/soulfull/crystal-healing-facial.jpg';
 import crystalHealingFacialTwoImage from '../assets/soulfull/crystal-healing-facial-2.jpg';
@@ -25,6 +25,15 @@ type BotanicalMarker = { name: string; pinClass: string };
 type BotanicalNote = { title: string; description: string };
 type TestimonialItem = { quote: string; author: string };
 type FaqItem = { question: string; answer: string };
+type FramedMedia = {
+  src: ImageMetadata;
+  alt: string;
+  widths: number[];
+  sizes: string;
+  ratio: string;
+  position: string;
+  label?: string;
+};
 
 const content = siteContent as Record<string, any>;
 const siteSettings = content.siteSettings ?? {};
@@ -53,20 +62,111 @@ const faqItems = (faqSection.items ?? []) as FaqItem[];
 const contactBadges = (contactSection.badges ?? []) as string[];
 const contactListItems = (contactSection.listItems ?? []) as string[];
 
+const frameStyle = (ratio: string, position: string) => `--media-ratio: ${ratio}; --media-position: ${position};`;
+
+const heroMedia = {
+  garden: {
+    src: gardenImage,
+    alt: 'Poolside garden sanctuary in the Algarve for Soulfull wellness retreats',
+    widths: [720, 1080],
+    sizes: '(max-width: 959px) 100vw, 32vw',
+    ratio: '5 / 4',
+    position: 'center 60%',
+    label: 'Garden sanctuary',
+  },
+  facial: {
+    src: massageTableImage,
+    alt: 'Prepared massage table with natural textures for a Soulfull wellness ritual',
+    widths: [480, 720],
+    sizes: '(max-width: 959px) 48vw, 16vw',
+    ratio: '5 / 6',
+    position: 'center 50%',
+    label: 'Holistic treatments',
+  },
+  table: {
+    src: decoratedDinnerTableImage,
+    alt: 'Sunlit outdoor dining table prepared for a Soulfull private gathering',
+    widths: [480, 720],
+    sizes: '(max-width: 959px) 48vw, 16vw',
+    ratio: '1 / 1',
+    position: 'center 62%',
+    label: 'Hosted gatherings',
+  },
+} satisfies Record<string, FramedMedia>;
+
+const philosophyMedia = {
+  main: {
+    src: botanicalBeautyProductImage,
+    alt: 'Soulfull botanical beauty oil held in a tropical garden setting',
+    widths: [560, 840],
+    sizes: '(max-width: 959px) 58vw, 26vw',
+    ratio: '4 / 5',
+    position: 'center 38%',
+  },
+  detail: {
+    src: crystalHealingFacialTwoImage,
+    alt: 'Holistic crystal facial treatment offered during Soulfull wellness experiences',
+    widths: [360, 540],
+    sizes: '(max-width: 959px) 38vw, 16vw',
+    ratio: '5 / 6',
+    position: 'center 36%',
+  },
+} satisfies Record<string, FramedMedia>;
+
 const retreatCardMedia = [
   {
-    src: botanicalBeautyProductImage,
-    alt: 'Botanical skincare oil used during Soulfull holistic skincare workshops in the Algarve',
+    src: crystalHealingFacialImage,
+    alt: 'Crystal healing facial ritual shown as part of a Soulfull workshop experience',
+    widths: [560, 840],
+    sizes: '(max-width: 959px) 100vw, 26vw',
+    ratio: '5 / 4',
+    position: 'center 42%',
   },
   {
     src: decoratedTableTwoImage,
     alt: 'Outdoor table styling for a private Soulfull wellness gathering in the Algarve',
+    widths: [560, 840],
+    sizes: '(max-width: 959px) 100vw, 26vw',
+    ratio: '16 / 10',
+    position: 'center 56%',
   },
   {
     src: foodPlatterImage,
     alt: 'Grazing platter served during a Soulfull retreat-style wellness day',
+    widths: [560, 840],
+    sizes: '(max-width: 959px) 100vw, 26vw',
+    ratio: '5 / 4',
+    position: 'center 55%',
   },
-] as const;
+] as const satisfies readonly FramedMedia[];
+
+const ritualStoryMedia = {
+  main: {
+    src: crystalHealingFacialTwoImage,
+    alt: 'Crystal healing facial ritual in the Soulfull treatment room',
+    widths: [560, 840],
+    sizes: '(max-width: 959px) 100vw, 24vw',
+    ratio: '5 / 4',
+    position: 'center 38%',
+  },
+  detail: {
+    src: gardenImage,
+    alt: 'Poolside garden sanctuary prepared for a Soulfull workshop afternoon',
+    widths: [480, 720],
+    sizes: '(max-width: 959px) 42vw, 16vw',
+    ratio: '1 / 1',
+    position: 'center 60%',
+  },
+} satisfies Record<string, FramedMedia>;
+
+const ritualBoardMedia = {
+  src: botanicalBeautyProductImage,
+  alt: 'Botanical beauty oil featured in Soulfull skincare rituals',
+  widths: [640, 960],
+  sizes: '(max-width: 959px) 100vw, 28vw',
+  ratio: '5 / 4',
+  position: 'center 42%',
+} satisfies FramedMedia;
 
 const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || testimonialsSection.headingScript);
 ---
@@ -179,40 +279,40 @@ const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || te
               </div>
 
               <div class="hero-media" aria-label="Soulfull experience gallery">
-                <figure class="hero-media__image hero-media__image--garden">
+                <figure class="hero-media__image hero-media__image--garden" style={frameStyle(heroMedia.garden.ratio, heroMedia.garden.position)}>
                   <Image
-                    src={gardenImage}
-                    alt="Poolside garden sanctuary in the Algarve for Soulfull wellness retreats"
-                    widths={[720, 1080]}
-                    sizes="(max-width: 959px) 100vw, 34vw"
+                    src={heroMedia.garden.src}
+                    alt={heroMedia.garden.alt}
+                    widths={heroMedia.garden.widths}
+                    sizes={heroMedia.garden.sizes}
                     loading="eager"
                     format="webp"
                   />
-                  <figcaption>Garden sanctuary</figcaption>
+                  <figcaption>{heroMedia.garden.label}</figcaption>
                 </figure>
 
-                <figure class="hero-media__image hero-media__image--facial">
+                <figure class="hero-media__image hero-media__image--facial" style={frameStyle(heroMedia.facial.ratio, heroMedia.facial.position)}>
                   <Image
-                    src={crystalHealingFacialTwoImage}
-                    alt="Holistic crystal facial treatment offered as part of Soulfull wellness experiences"
-                    widths={[360, 540]}
-                    sizes="(max-width: 959px) 48vw, 14vw"
+                    src={heroMedia.facial.src}
+                    alt={heroMedia.facial.alt}
+                    widths={heroMedia.facial.widths}
+                    sizes={heroMedia.facial.sizes}
                     loading="eager"
                     format="webp"
                   />
-                  <figcaption>Holistic treatments</figcaption>
+                  <figcaption>{heroMedia.facial.label}</figcaption>
                 </figure>
 
-                <figure class="hero-media__image hero-media__image--table">
+                <figure class="hero-media__image hero-media__image--table" style={frameStyle(heroMedia.table.ratio, heroMedia.table.position)}>
                   <Image
-                    src={decoratedDinnerTableImage}
-                    alt="Sunlit outdoor dining table prepared for a Soulfull private gathering"
-                    widths={[480, 720]}
-                    sizes="(max-width: 959px) 48vw, 18vw"
+                    src={heroMedia.table.src}
+                    alt={heroMedia.table.alt}
+                    widths={heroMedia.table.widths}
+                    sizes={heroMedia.table.sizes}
                     loading="eager"
                     format="webp"
                   />
-                  <figcaption>Hosted gatherings</figcaption>
+                  <figcaption>{heroMedia.table.label}</figcaption>
                 </figure>
 
                 <aside class="hero-snapshot" aria-label="Soulfull overview">
@@ -266,22 +366,22 @@ const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || te
             </div>
 
             <aside class="philosophy-media" aria-label="Soulfull philosophy in practice">
-              <figure class="philosophy-media__main">
+              <figure class="philosophy-media__main" style={frameStyle(philosophyMedia.main.ratio, philosophyMedia.main.position)}>
                 <Image
-                  src={botanicalBeautyProductImage}
-                  alt="Soulfull botanical beauty oil held in a tropical garden setting"
-                  widths={[560, 840]}
-                  sizes="(max-width: 959px) 100vw, 30vw"
+                  src={philosophyMedia.main.src}
+                  alt={philosophyMedia.main.alt}
+                  widths={philosophyMedia.main.widths}
+                  sizes={philosophyMedia.main.sizes}
                   loading="lazy"
                   format="webp"
                 />
               </figure>
-              <figure class="philosophy-media__detail">
+              <figure class="philosophy-media__detail" style={frameStyle(philosophyMedia.detail.ratio, philosophyMedia.detail.position)}>
                 <Image
-                  src={massageTableImage}
-                  alt="Prepared massage table with Soulfull treatment tools and natural textures"
-                  widths={[320, 480]}
-                  sizes="(max-width: 959px) 52vw, 16vw"
+                  src={philosophyMedia.detail.src}
+                  alt={philosophyMedia.detail.alt}
+                  widths={philosophyMedia.detail.widths}
+                  sizes={philosophyMedia.detail.sizes}
                   loading="lazy"
                   format="webp"
                 />
@@ -332,12 +432,12 @@ const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || te
               return (
                 <article class="retreat-card" data-tina-field={tinaField(retreatsSection, 'cards', index)}>
                   {retreatMedia && (
-                    <figure class="retreat-card__media">
+                    <figure class="retreat-card__media" style={frameStyle(retreatMedia.ratio, retreatMedia.position)}>
                       <Image
                         src={retreatMedia.src}
                         alt={retreatMedia.alt}
-                        widths={[560, 840]}
-                        sizes="(max-width: 959px) 100vw, 26vw"
+                        widths={retreatMedia.widths}
+                        sizes={retreatMedia.sizes}
                         loading="lazy"
                         format="webp"
                       />
@@ -397,29 +497,18 @@ const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || te
             </div>
 
             <aside class="ritual-story" aria-label="Soulfull workshop atmosphere">
-              <figure class="ritual-story__image ritual-story__image--portrait">
+              <figure class="ritual-story__image ritual-story__image--portrait" style={frameStyle(ritualStoryMedia.main.ratio, ritualStoryMedia.main.position)}>
                 <Image
-                  src={crystalHealingFacialImage}
-                  alt="Crystal healing facial ritual in the Soulfull treatment room"
-                  widths={[480, 720]}
-                  sizes="(max-width: 959px) 100vw, 20vw"
+                  src={ritualStoryMedia.main.src}
+                  alt={ritualStoryMedia.main.alt}
+                  widths={ritualStoryMedia.main.widths}
+                  sizes={ritualStoryMedia.main.sizes}
                   loading="lazy"
                   format="webp"
                 />
               </figure>
 
               <div class="ritual-story__details">
-                <figure class="ritual-story__image ritual-story__image--detail">
-                  <Image
-                    src={massageTableImage}
-                    alt="Massage table prepared with treatment tools for a Soulfull session"
-                    widths={[360, 540]}
-                    sizes="(max-width: 959px) 100vw, 22vw"
-                    loading="lazy"
-                    format="webp"
-                  />
-                </figure>
-
                 <div class="ritual-story__copy">
                   {itinerarySection.sideEyebrow && (
                     <span class="eyebrow" data-tina-field={tinaField(itinerarySection, 'sideEyebrow')}>
@@ -434,6 +523,17 @@ const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || te
                     ))}
                   </ul>
                 </div>
+
+                <figure class="ritual-story__image ritual-story__image--detail" style={frameStyle(ritualStoryMedia.detail.ratio, ritualStoryMedia.detail.position)}>
+                  <Image
+                    src={ritualStoryMedia.detail.src}
+                    alt={ritualStoryMedia.detail.alt}
+                    widths={ritualStoryMedia.detail.widths}
+                    sizes={ritualStoryMedia.detail.sizes}
+                    loading="lazy"
+                    format="webp"
+                  />
+                </figure>
               </div>
             </aside>
           </div>
@@ -457,13 +557,13 @@ const testimonialHeadingVisible = Boolean(testimonialsSection.headingLine1 || te
           </div>
 
           <div class="itinerary__layout">
-            <article class="ritual-board" aria-label={portugalSection.mapTitle}>
+            <article class="ritual-board" aria-label={portugalSection.mapTitle} style={frameStyle(ritualBoardMedia.ratio, ritualBoardMedia.position)}>
               <Image
                 class="ritual-board__image"
-                src={botanicalBeautyProductImage}
-                alt="Botanical beauty oil featured in Soulfull skincare rituals"
-                widths={[640, 960]}
-                sizes="(max-width: 959px) 100vw, 32vw"
+                src={ritualBoardMedia.src}
+                alt={ritualBoardMedia.alt}
+                widths={ritualBoardMedia.widths}
+                sizes={ritualBoardMedia.sizes}
                 loading="lazy"
                 format="webp"
               />
